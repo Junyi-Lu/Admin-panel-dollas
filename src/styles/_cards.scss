@@ -1,0 +1,28 @@
+.Dashboard {
+    h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+}
+
+.Cards {
+    display: flex;
+    gap: 10px;
+    margin-left: 0.7rem;
+
+    .parentContainer {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 1200px) {
+        flex-direction: column;
+
+        .parentContainer {
+            height: 9rem;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 90%;
+    }
+}

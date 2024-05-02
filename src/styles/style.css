@@ -1,0 +1,437 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --yellow: linear-gradient(180deg, #F8D49A -146.42%, #FAD79D -46.42%);
+  --orange: #fca61f;
+  --black: #242d49;
+  --gray: #788097;
+  --purple: linear-gradient(180deg, #BB67FF 0%, #C484F3 100%);
+  --pink: #FF919D;
+  --glass: rgba(255, 255, 255, 0.54);
+  --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+  --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+  --activeItem: #f799a354;
+}
+
+.App {
+  background: linear-gradient(106.37deg, #ffe1bc 29.63%, #ffcfd1 51.55%, #f3c6f1 90.85%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.App .AppGlass {
+  display: grid;
+  height: 97%;
+  width: 97%;
+  border-radius: 2rem;
+  background-color: var(--glass);
+  overflow: hidden;
+  grid-template-columns: 11rem auto 20rem;
+}
+@media screen and (max-width: 1200px) {
+  .App .AppGlass {
+    grid-template-columns: 10% 50% auto;
+    overflow-y: scroll;
+  }
+}
+@media screen and (max-width: 768px) {
+  .App .AppGlass {
+    grid-template-columns: 1fr;
+  }
+}
+
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 4rem;
+  transition: all 300ms ease;
+}
+.Sidebar .bars {
+  display: none;
+}
+.Sidebar .logo {
+  display: flex;
+  height: 5rem;
+  font-weight: bold;
+  font-size: 22px;
+  gap: 1rem;
+  padding-left: 0.8rem;
+  align-items: center;
+  justify-content: center;
+}
+.Sidebar .logo > span > span {
+  color: var(--pink);
+}
+.Sidebar .logo > img {
+  width: 3rem;
+  height: 3rem;
+}
+.Sidebar .closeBtn {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.Sidebar:hover {
+  opacity: 0.8;
+}
+.Sidebar .menu {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.Sidebar .menu .menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  height: 2.5rem;
+  margin-left: 2rem;
+  position: relative;
+  transition: all 300ms ease;
+  border-radius: 0.7rem;
+  font-size: 14px;
+}
+.Sidebar .menu .menuItem:hover::before {
+  content: "";
+  width: 8px;
+  height: 100%;
+  margin-right: calc(1rem - 8px);
+}
+.Sidebar .menu .menuItem:hover {
+  cursor: pointer;
+  background: var(--activeItem);
+  margin-left: 0;
+}
+.Sidebar .menu .menuItem:last-child {
+  position: absolute;
+  bottom: 2.3rem;
+  width: 100%;
+}
+.Sidebar .menu .active {
+  background: var(--activeItem);
+  margin-left: 0;
+}
+.Sidebar .menu .active::before {
+  content: "";
+  width: 8px;
+  height: 100%;
+  background: var(--pink);
+  margin-right: calc(1rem - 8px);
+}
+
+@media screen and (max-width: 1200px) {
+  .Sidebar .menuItem > span {
+    display: none;
+  }
+  .Sidebar .logo {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Sidebar {
+    position: fixed;
+    z-index: 9;
+    background: #ffe0e0;
+    width: 55%;
+    padding-right: 1rem;
+    height: 100%;
+  }
+  .Sidebar .menuItem > span {
+    display: block;
+  }
+  .Sidebar .closeBtn {
+    display: block;
+  }
+  .Sidebar .logo {
+    display: flex;
+  }
+  .Sidebar .menu .menuItem:last-child {
+    position: relative;
+    margin-top: 6rem;
+  }
+  .Sidebar .bars {
+    display: flex;
+    position: fixed;
+    top: 2rem;
+    left: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 9;
+  }
+  .Sidebar .close {
+    left: -60%;
+  }
+}
+.Maindash {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.Maindash .menu-button {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 1200px) {
+  .Maindash {
+    justify-content: flex-start;
+    margin-top: 2rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Maindash {
+    align-items: center;
+  }
+  .Maindash .menu-button {
+    display: block;
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+}
+
+.Dashboard h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.Cards {
+  display: flex;
+  gap: 10px;
+  margin-left: 0.7rem;
+}
+.Cards .parentContainer {
+  width: 100%;
+}
+@media screen and (max-width: 1200px) {
+  .Cards {
+    flex-direction: column;
+  }
+  .Cards .parentContainer {
+    height: 9rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Cards {
+    width: 90%;
+  }
+}
+
+.CompactCard {
+  display: flex;
+  flex: 1;
+  height: 7rem !important;
+  border-radius: 0.7rem;
+  color: white;
+  padding: 1rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+  opacity: 0.6 !important;
+}
+.CompactCard:hover {
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+.CompactCard .radialBar {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.CompactCard .radialBar > span {
+  font-size: 17px;
+  font-weight: bold;
+}
+.CompactCard .radialBar .CircularProgressbar {
+  width: 4rem !important;
+  overflow: visible;
+}
+.CompactCard .radialBar .CircularProgressbar-path {
+  stroke: white !important;
+  stroke-width: 12px !important;
+  filter: drop-shadow(2px 4px 6px white);
+}
+.CompactCard .radialBar .CircularProgressbar-trail {
+  display: none;
+}
+.CompactCard .radialBar .CircularProgressbar-text {
+  fill: white !important;
+}
+.CompactCard .detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.CompactCard .detail > span:nth-child(2) {
+  font-size: 22px;
+  font-weight: bold;
+}
+.CompactCard .detail > span:nth-child(3) {
+  font-size: 12px;
+}
+
+.ExpandedCard {
+  position: absolute;
+  width: 60%;
+  height: 70vh;
+  z-index: 9;
+  left: 13rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+}
+.ExpandedCard > span:nth-of-type(1) {
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  text-shadow: 0px 0px 15px white;
+}
+.ExpandedCard > span:nth-of-type(2) {
+  color: rgb(236, 236, 236);
+  font-size: 15px;
+}
+.ExpandedCard .chartContainer {
+  width: 70%;
+}
+@media screen and (max-width: 1200px) {
+  .ExpandedCard {
+    top: 2rem;
+    height: 50vh;
+    left: 6rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .ExpandedCard {
+    top: 8rem;
+    height: 50%;
+    left: 25px;
+    width: 80%;
+  }
+}
+
+.MuiTableRow-root > * {
+  padding: 10px;
+}
+.MuiTableRow-root.MuiTableRow-head > * {
+  font-weight: bold !important;
+}
+
+.RecentOrders h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.Table td,
+.Table th {
+  border: none !important;
+}
+.Table:first-child {
+  border-radius: 0.7rem !important;
+}
+@media screen and (max-width: 1200px) {
+  .Table {
+    width: 170%;
+    margin-top: 2rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Table {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23rem;
+  }
+}
+
+.status {
+  padding: 8px;
+  border-radius: 9px;
+}
+
+.Details {
+  color: #00b5ff !important;
+}
+
+.RightSide {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 1200px) {
+  .RightSide {
+    justify-content: flex-start;
+    margin-top: 3rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .RightSide {
+    width: 100%;
+    margin-top: 0;
+  }
+  .RightSide > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.Updates {
+  width: 85%;
+  border-radius: 0.7rem;
+  padding: 1rem;
+  margin-left: 0.7rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  border: 5px dashed #f3c6f1;
+}
+.Updates .update {
+  display: flex;
+  gap: 0.5rem;
+}
+.Updates .update > img {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+.Updates .noti > div > span:nth-of-type(1) {
+  font-weight: bold;
+}
+
+.box {
+  height: 86%;
+}
+@media screen and (max-width: 768px) {
+  .box {
+    height: 20vh;
+    width: 70vw;
+  }
+}/*# sourceMappingURL=style.css.map */
